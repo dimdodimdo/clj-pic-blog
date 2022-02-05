@@ -4,7 +4,8 @@
             [monger.operators :refer [$set]])
 
   (:import
-    [org.bson.types ObjectId])
+    [org.bson.types ObjectId]
+    (java.util Date))
   )
 
 (def db-connection-uri (or
@@ -16,10 +17,11 @@
 (def posts-coll "posts")
 (defn create [author title body pic]
   (mc/insert db posts-coll {
-                            :author author
-                            :title title
-                            :body body
-                            :pic pic
+                            :author  author
+                            :title   title
+                            :body    body
+                            :pic     pic
+                            :created (new Date)
                             }))
 (defn update [id title body pic]
   (mc/update-by-id db posts-coll

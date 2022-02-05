@@ -11,5 +11,6 @@
   :plugins [[lein-ring "0.12.5"]]
   :ring {:handler cljpicblog.handler/app}
   :profiles
+
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.3.2"]]}})
