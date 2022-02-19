@@ -23,11 +23,12 @@
                             :pic     pic
                             :created (new Date)
                             }))
-(defn update [id title body pic]
+(defn update [id author title body pic]
   (mc/update-by-id db posts-coll
                    (ObjectId. id)
                    {$set
-                    {:title title
+                    {:author author
+                     :title title
                      :body body
                      :pic pic
                      }
